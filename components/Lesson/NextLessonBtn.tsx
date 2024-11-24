@@ -11,5 +11,5 @@ export default function NextLessonBtn({ path, isCompleted }) {
         {path ? "Next Lesson" : "Complete Course"}
       </a>
     </div>
-  )
+  );
 }

@@ -1,17 +1,17 @@
-import { Fragment } from "react"
-import { Popover, Transition } from "@headlessui/react"
-import MobileNav from "./Mobile/MobileNav"
-import Link from "next/link"
-import coursesJson from "../data/courses.json"
-import { MenuIcon } from "@heroicons/react/outline"
-import { ChevronDownIcon, CodeIcon } from "@heroicons/react/solid"
+import { Fragment } from "react";
+import { Popover, Transition } from "@headlessui/react";
+import MobileNav from "./Mobile/MobileNav";
+import Link from "next/link";
+import coursesJson from "../data/courses.json";
+import { MenuIcon } from "@heroicons/react/outline";
+import { ChevronDownIcon, CodeIcon } from "@heroicons/react/solid";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ")
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Header({ content, courses, progressService }) {
-  const coursesJsonCourses = Object.keys(coursesJson)
+  const coursesJsonCourses = Object.keys(coursesJson);
 
   return (
     <>
@@ -44,7 +44,7 @@ export default function Header({ content, courses, progressService }) {
                       <Popover.Button
                         className={classNames(
                           open ? "text-gray-900" : "text-gray-500",
-                          "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                          "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500",
                         )}
                         data-test="courses-dropdown"
                       >
@@ -52,7 +52,7 @@ export default function Header({ content, courses, progressService }) {
                         <ChevronDownIcon
                           className={classNames(
                             open ? "text-gray-600" : "text-gray-400",
-                            "ml-2 h-5 w-5 group-hover:text-gray-500"
+                            "ml-2 h-5 w-5 group-hover:text-gray-500",
                           )}
                           aria-hidden="true"
                         />
@@ -115,5 +115,5 @@ export default function Header({ content, courses, progressService }) {
         progressService={progressService}
       />
     </>
-  )
+  );
 }

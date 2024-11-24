@@ -1,10 +1,10 @@
-import Head from "next/head"
-import Layout from "../components/Layout"
-import HomeHero from "../components/Home/HomeHero"
-import HomeFeatures from "../components/Home/HomeFeatures"
-import HomeCourses from "../components/Home/HomeCourses"
-import { progressService } from "../machines/progressService"
-import { fetchCourses } from "../lib/fetch-courses"
+import Head from "next/head";
+import Layout from "../components/Layout";
+import HomeHero from "../components/Home/HomeHero";
+import HomeFeatures from "../components/Home/HomeFeatures";
+import HomeCourses from "../components/Home/HomeCourses";
+import { progressService } from "../machines/progressService";
+import { fetchCourses } from "../lib/fetch-courses";
 
 export default function Home({ content, courses }) {
   return (
@@ -29,16 +29,16 @@ export default function Home({ content, courses }) {
         progressService={progressService}
       />
     </Layout>
-  )
+  );
 }
 
 export async function getStaticProps({ params }) {
-  const coursesJson = await fetchCourses()
-  const courses = Object.keys(coursesJson)
+  const coursesJson = await fetchCourses();
+  const courses = Object.keys(coursesJson);
   return {
     props: {
       content: coursesJson,
       courses,
     },
-  }
+  };
 }

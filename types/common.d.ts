@@ -1,37 +1,37 @@
 export type LessonTableOfContents = {
-  content: string
-  slug: string
-  lvl: number
-  current?: boolean
-}
+  content: string;
+  slug: string;
+  lvl: number;
+  current?: boolean;
+};
 
 export interface ChallengeAnswer {
-  id: string
-  answeredCorrectly?: boolean
-  skipped?: boolean
+  id: string;
+  answeredCorrectly?: boolean;
+  skipped?: boolean;
 }
 export interface EventPayload {
-  type: string
-  id: string
-  challengeIndex: number
+  type: string;
+  id: string;
+  challengeIndex: number;
 }
 
 export interface MultipleChoicePayload extends EventPayload {
-  userAnswerIndex: number
+  userAnswerIndex: number;
 }
 
 export interface ProgressContext {
-  sectionsCompleted: string[]
-  lessons: object[]
-  disableChallenges: boolean
+  sectionsCompleted: string[];
+  lessons: object[];
+  disableChallenges: boolean;
 }
 
 export interface Challenge {
-  challengeType: string
-  question: string
+  challengeType: string;
+  question: string;
 }
 
 export interface MultipleChoiceChallenge extends Challenge {
-  answers: []
-  correctAnswerIndex: string
+  answers: [];
+  correctAnswerIndex: string;
 }

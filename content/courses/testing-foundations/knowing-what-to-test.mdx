@@ -10,18 +10,18 @@ Sed elementum ut nulla nec sagittis. Sed orci neque, cursus id lacinia id, susci
 
 ```js
 export async function getStaticProps(context) {
-  const res = await fetch(`https://.../data`)
-  const data = await res.json()
+  const res = await fetch(`https://.../data`);
+  const data = await res.json();
 
   if (!data) {
     return {
       notFound: true,
-    }
+    };
   }
 
   return {
     props: { data }, // will be passed to the page component as props
-  }
+  };
 }
 ```
 

@@ -1,13 +1,13 @@
-import Link from "next/link"
-import { HomeIcon } from "@heroicons/react/solid"
+import Link from "next/link";
+import { HomeIcon } from "@heroicons/react/solid";
 
 const pages = [
   { name: "Projects", href: "#", current: false },
   { name: "Project Nero", href: "#", current: true },
-]
+];
 
 export default function Breadcrumbs({ lessonPath, sectionTitle, lessonData }) {
-  const [sectionSlug] = lessonPath.split("/")
+  const [sectionSlug] = lessonPath.split("/");
 
   return (
     <nav
@@ -73,5 +73,5 @@ export default function Breadcrumbs({ lessonPath, sectionTitle, lessonData }) {
         </li>
       </ol>
     </nav>
-  )
+  );
 }

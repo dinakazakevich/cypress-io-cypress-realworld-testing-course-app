@@ -1,8 +1,8 @@
 type Props = {
-  index: number
-  isCompleted: boolean
-  lessons: []
-}
+  index: number;
+  isCompleted: boolean;
+  lessons: [];
+};
 
 export default function ProgressLine({ index, isCompleted, lessons }: Props) {
   return (
@@ -16,5 +16,5 @@ export default function ProgressLine({ index, isCompleted, lessons }: Props) {
         />
       ) : null}
     </>
-  )
+  );
 }

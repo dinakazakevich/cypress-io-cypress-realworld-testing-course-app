@@ -1,9 +1,9 @@
-import LessonToc from "../../components/Lesson/LessonToc"
-import LessonBreadcrumbs from "./LessonBreadcrumbs"
-import { MDXRemote } from "next-mdx-remote"
-import dynamic from "next/dynamic"
-import Script from "next/script"
-import LessonProgress from "./LessonProgress"
+import LessonToc from "../../components/Lesson/LessonToc";
+import LessonBreadcrumbs from "./LessonBreadcrumbs";
+import { MDXRemote } from "next-mdx-remote";
+import dynamic from "next/dynamic";
+import Script from "next/script";
+import LessonProgress from "./LessonProgress";
 
 export default function LessonLayout({
   toc,
@@ -98,5 +98,5 @@ export default function LessonLayout({
         `}
       </Script>
     </>
-  )
+  );
 }

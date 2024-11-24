@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { isLessonCompleted } from "../../utils/machineUtils"
+import Link from "next/link";
+import { isLessonCompleted } from "../../utils/machineUtils";
 
 export default function CourseNextLessonBtn({
   lessons,
@@ -9,30 +9,30 @@ export default function CourseNextLessonBtn({
   const incompleLessons = lessons
     .map((lesson) => {
       if (!isLessonCompleted(progressService, `${course}/${lesson.slug}`)) {
-        return lesson.slug
+        return lesson.slug;
       }
     })
-    .filter((lesson) => lesson !== undefined)
+    .filter((lesson) => lesson !== undefined);
 
   const buttonText = () => {
     if (!incompleLessons.length) {
-      return "Course Completed"
+      return "Course Completed";
     }
 
     if (incompleLessons.length === lessons.length) {
-      return "Start Course"
+      return "Start Course";
     } else {
-      return "Next Lesson"
+      return "Next Lesson";
     }
-  }
+  };
 
   const buttonURL = () => {
     if (!incompleLessons.length) {
-      return "/"
+      return "/";
     } else {
-      return `${course}/${incompleLessons[0]}`
+      return `${course}/${incompleLessons[0]}`;
     }
-  }
+  };
 
   return (
     <div className="py-20">
@@ -45,5 +45,5 @@ export default function CourseNextLessonBtn({
         </a>
       </Link>
     </div>
-  )
+  );
 }

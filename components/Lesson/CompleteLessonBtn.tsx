@@ -1,11 +1,11 @@
-import { useActor } from "@xstate/react"
+import { useActor } from "@xstate/react";
 
 export default function NextLessonBtn({
   nextLessonPath,
   progressService,
   lessonPath,
 }) {
-  const [, progressSend] = useActor(progressService)
+  const [, progressSend] = useActor(progressService);
 
   return (
     <div data-test="complete-lesson-button" className="py-20">
@@ -16,11 +16,11 @@ export default function NextLessonBtn({
           progressSend({
             type: "COMPLETE_LESSON",
             id: lessonPath,
-          })
+          });
         }}
       >
         {nextLessonPath ? "Next Lesson" : "Complete Course"}
       </a>
     </div>
-  )
+  );
 }

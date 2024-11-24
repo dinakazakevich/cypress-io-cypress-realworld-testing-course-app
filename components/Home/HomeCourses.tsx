@@ -1,6 +1,6 @@
-import dynamic from "next/dynamic"
+import dynamic from "next/dynamic";
 
-const HomeProgress = dynamic(() => import("./HomeProgress"), {})
+const HomeProgress = dynamic(() => import("./HomeProgress"), {});
 
 export default function HomeCourses({ courses, content, progressService }) {
   return (
@@ -99,5 +99,5 @@ export default function HomeCourses({ courses, content, progressService }) {
         </div>
       ))}
     </div>
-  )
+  );
 }

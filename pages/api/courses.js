@@ -1,5 +1,5 @@
-import coursesJson from "../../data/courses.json"
+import coursesJson from "../../data/courses.json";
 
 export default function handler(req, res) {
-  res.status(200).json(coursesJson)
+  res.status(200).json(coursesJson);
 }

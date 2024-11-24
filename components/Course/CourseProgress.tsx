@@ -1,21 +1,21 @@
-import dynamic from "next/dynamic"
-import Link from "next/link"
-import { isLessonCompleted } from "../../utils/machineUtils"
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import { isLessonCompleted } from "../../utils/machineUtils";
 
 const ProgressLine = dynamic(() => import("../Progress/ProgressLine"), {
   ssr: false,
-})
+});
 
 const CompletedLesson = dynamic(() => import("../Progress/CompletedLesson"), {
   ssr: false,
-})
+});
 
 const IncompleteLesson = dynamic(() => import("../Progress/IncompleteLesson"), {
   ssr: false,
-})
+});
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ")
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function CourseProgress({ lessons, progressService, course }) {
@@ -28,7 +28,7 @@ export default function CourseProgress({ lessons, progressService, course }) {
             key={lesson.title}
             className={classNames(
               index !== lessons.length - 1 ? "pb-10" : "",
-              "relative"
+              "relative",
             )}
           >
             {/* Solid Line that connects the checkmarks */}
@@ -37,19 +37,19 @@ export default function CourseProgress({ lessons, progressService, course }) {
               lessons={lessons}
               isCompleted={isLessonCompleted(
                 progressService,
-                `${course}/${lesson.slug}`
+                `${course}/${lesson.slug}`,
               )}
             />
 
             <div className="relative flex items-start group">
               {isLessonCompleted(
                 progressService,
-                `${course}/${lesson.slug}`
+                `${course}/${lesson.slug}`,
               ) && <CompletedLesson index={index} />}
 
               {!isLessonCompleted(
                 progressService,
-                `${course}/${lesson.slug}`
+                `${course}/${lesson.slug}`,
               ) && <IncompleteLesson index={index} />}
 
               {/* Lesson Title */}
@@ -67,5 +67,5 @@ export default function CourseProgress({ lessons, progressService, course }) {
         ))}
       </ol>
     </nav>
-  )
+  );
 }

@@ -1,20 +1,20 @@
-import { useActor } from "@xstate/react"
-import { useState } from "react"
+import { useActor } from "@xstate/react";
+import { useState } from "react";
 
 export default function LessonChallenge({
   progressService,
   lessonData,
   lessonPath,
 }) {
-  const [answerIndicies, setAnswerChecked] = useState([])
-  const [, progressSend] = useActor(progressService)
+  const [answerIndicies, setAnswerChecked] = useState([]);
+  const [, progressSend] = useActor(progressService);
 
   const isIncorrectAnswer = (index) => {
     return (
       answerIndicies.includes(index) &&
       lessonData.challenges[0].correctAnswerIndex !== index
-    )
-  }
+    );
+  };
 
   return (
     <>
@@ -47,13 +47,13 @@ export default function LessonChallenge({
                             : ""
                         } focus:ring-blue-500 text-blue-600 border-gray-300 rounded h-8 w-8`}
                         onClick={() => {
-                          setAnswerChecked((prev) => [...prev, index])
+                          setAnswerChecked((prev) => [...prev, index]);
                           progressSend({
                             type: "SUBMIT_ANSWER",
                             id: lessonPath,
                             challengeIndex: 0,
                             userAnswerIndex: index,
-                          })
+                          });
                         }}
                       />
                     </div>
@@ -76,5 +76,5 @@ export default function LessonChallenge({
       </div>
       <hr />
     </>
-  )
+  );
 }

@@ -1,9 +1,9 @@
-import React from "react"
-import { useForm, SubmitHandler } from "react-hook-form"
+import React from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 type Inputs = {
-  email: string
-}
+  email: string;
+};
 
 export default function Subscribe() {
   const {
@@ -11,12 +11,12 @@ export default function Subscribe() {
     handleSubmit,
     formState,
     formState: { errors },
-  } = useForm<Inputs>()
+  } = useForm<Inputs>();
 
-  const [isSubmitted, setIsSubmitted] = React.useState("")
+  const [isSubmitted, setIsSubmitted] = React.useState("");
 
   const onSubmit: SubmitHandler<Inputs> = async (data, event) => {
-    event.target.reset()
+    event.target.reset();
 
     const subscribe = await fetch("/api/subscribe", {
       method: "POST",
@@ -24,11 +24,11 @@ export default function Subscribe() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    })
-    const response = await subscribe.json()
+    });
+    const response = await subscribe.json();
 
-    setIsSubmitted(response.message)
-  }
+    setIsSubmitted(response.message);
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="sm:flex">
@@ -72,5 +72,5 @@ export default function Subscribe() {
         />
       </div>
     </form>
-  )
+  );
 }

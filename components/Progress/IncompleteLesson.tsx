@@ -1,6 +1,6 @@
 type Props = {
-  index: number
-}
+  index: number;
+};
 
 export default function IncompleteLesson({ index }: Props) {
   return (
@@ -14,5 +14,5 @@ export default function IncompleteLesson({ index }: Props) {
         </span>
       </span>
     </>
-  )
+  );
 }

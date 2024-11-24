@@ -5,7 +5,7 @@ import {
   DatabaseIcon,
   CodeIcon,
   AdjustmentsIcon,
-} from "@heroicons/react/outline"
+} from "@heroicons/react/outline";
 
 const features = [
   {
@@ -38,7 +38,7 @@ const features = [
     icon: AdjustmentsIcon,
     description: "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
-]
+];
 
 export default function HomeFeatures() {
   return (
@@ -75,5 +75,5 @@ export default function HomeFeatures() {
         </div>
       </div>
     </div>
-  )
+  );
 }

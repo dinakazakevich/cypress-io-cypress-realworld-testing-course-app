@@ -1,7 +1,7 @@
-import React from "react"
-import { useForm, SubmitHandler } from "react-hook-form"
-import { CheckIcon } from "@heroicons/react/outline"
-import Subscribe from "../Subscribe"
+import React from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { CheckIcon } from "@heroicons/react/outline";
+import Subscribe from "../Subscribe";
 
 const features = [
   {
@@ -16,11 +16,11 @@ const features = [
     name: "Free and Open Source",
     description: "",
   },
-]
+];
 
 type Inputs = {
-  email: string
-}
+  email: string;
+};
 
 export default function HomeHero() {
   const {
@@ -28,12 +28,12 @@ export default function HomeHero() {
     handleSubmit,
     formState,
     formState: { errors },
-  } = useForm<Inputs>()
+  } = useForm<Inputs>();
 
-  const [isSubmitted, setIsSubmitted] = React.useState("")
+  const [isSubmitted, setIsSubmitted] = React.useState("");
 
   const onSubmit: SubmitHandler<Inputs> = async (data, event) => {
-    event.target.reset()
+    event.target.reset();
 
     const subscribe = await fetch("/api/subscribe", {
       method: "POST",
@@ -41,11 +41,11 @@ export default function HomeHero() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    })
-    const response = await subscribe.json()
+    });
+    const response = await subscribe.json();
 
-    setIsSubmitted(response.message)
-  }
+    setIsSubmitted(response.message);
+  };
 
   return (
     <div className="">
@@ -109,5 +109,5 @@ export default function HomeHero() {
         </main>
       </div>
     </div>
-  )
+  );
 }

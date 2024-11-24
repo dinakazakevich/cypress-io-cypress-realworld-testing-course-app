@@ -54,5 +54,5 @@ export default function LessonHero(props) {
         </main>
       </div>
     </div>
-  )
+  );
 }

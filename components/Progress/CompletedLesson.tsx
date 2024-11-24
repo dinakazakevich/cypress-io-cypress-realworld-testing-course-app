@@ -1,8 +1,8 @@
-import { CheckIcon } from "@heroicons/react/solid"
+import { CheckIcon } from "@heroicons/react/solid";
 
 type Props = {
-  index: number
-}
+  index: number;
+};
 
 export default function CompletedLesson({ index }: Props) {
   return (
@@ -16,5 +16,5 @@ export default function CompletedLesson({ index }: Props) {
         </span>
       </span>
     </>
-  )
+  );
 }

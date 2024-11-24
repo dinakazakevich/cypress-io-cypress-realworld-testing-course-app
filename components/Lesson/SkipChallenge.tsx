@@ -1,17 +1,17 @@
-import { useActor } from "@xstate/react"
+import { useActor } from "@xstate/react";
 
 export default function LessonChallenge({ progressService }) {
-  const [, progressSend] = useActor(progressService)
+  const [, progressSend] = useActor(progressService);
 
   const handleInputChange = (event) => {
-    const target = event.target
-    const value = target.type === "checkbox" ? target.checked : target.value
+    const target = event.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
 
     progressSend({
       type: "DISABLE_CHALLENGES",
       value,
-    })
-  }
+    });
+  };
 
   return (
     <>
@@ -30,5 +30,5 @@ export default function LessonChallenge({ progressService }) {
         </label>
       </div>
     </>
-  )
+  );
 }

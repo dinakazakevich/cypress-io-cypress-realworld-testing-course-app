@@ -1,8 +1,8 @@
-import { CheckIcon } from "@heroicons/react/solid"
-import { isLessonCompleted } from "../../utils/machineUtils"
+import { CheckIcon } from "@heroicons/react/solid";
+import { isLessonCompleted } from "../../utils/machineUtils";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ")
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function LessonSteps({ course, content, progressService }) {
@@ -15,7 +15,7 @@ export default function LessonSteps({ course, content, progressService }) {
             key={lesson.title}
             className={classNames(
               index !== content?.lessons.length - 1 ? "pb-4" : "",
-              "relative"
+              "relative",
             )}
           >
             {/* Solid Line that connects the checkmarks */}
@@ -35,7 +35,7 @@ export default function LessonSteps({ course, content, progressService }) {
 
               {isLessonCompleted(
                 progressService,
-                `${course}/${lesson.slug}`
+                `${course}/${lesson.slug}`,
               ) && (
                 <span className="h-9 flex items-center">
                   <span
@@ -53,7 +53,7 @@ export default function LessonSteps({ course, content, progressService }) {
               {/* "upcoming" */}
               {!isLessonCompleted(
                 progressService,
-                `${course}/${lesson.slug}`
+                `${course}/${lesson.slug}`,
               ) && (
                 <span className="h-9 flex items-center" aria-hidden="true">
                   <span
@@ -76,5 +76,5 @@ export default function LessonSteps({ course, content, progressService }) {
         ))}
       </ol>
     </nav>
-  )
+  );
 }

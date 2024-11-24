@@ -1,19 +1,19 @@
-import { interpret, State } from "xstate"
-import { progressMachine } from "./progressMachine"
-const LOCAL_STORAGE_ITEM = "progressState"
+import { interpret, State } from "xstate";
+import { progressMachine } from "./progressMachine";
+const LOCAL_STORAGE_ITEM = "progressState";
 
 // @ts-ignore
 const stateDefinition =
   typeof window !== "undefined"
     ? JSON.parse(window.localStorage.getItem(LOCAL_STORAGE_ITEM))
-    : undefined
+    : undefined;
 
-let resolvedState
+let resolvedState;
 if (stateDefinition) {
-  const previousState = State.create(stateDefinition)
+  const previousState = State.create(stateDefinition);
 
   // @ts-ignore
-  resolvedState = progressMachine.resolveState(previousState)
+  resolvedState = progressMachine.resolveState(previousState);
 }
 
 export const progressService = interpret(progressMachine, {
@@ -22,7 +22,7 @@ export const progressService = interpret(progressMachine, {
   .onTransition((state) => {
     if (state.changed) {
       typeof window !== "undefined" &&
-        window.localStorage.setItem(LOCAL_STORAGE_ITEM, JSON.stringify(state))
+        window.localStorage.setItem(LOCAL_STORAGE_ITEM, JSON.stringify(state));
     }
   })
-  .start(resolvedState)
+  .start(resolvedState);

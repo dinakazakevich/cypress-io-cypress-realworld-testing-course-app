@@ -1,9 +1,9 @@
-import Head from "next/head"
-import Layout from "../../components/Layout"
-import CourseHero from "../../components/Course/CourseHero"
-import CourseContent from "../../components/Course/CourseContent"
-import { progressService } from "../../machines/progressService"
-import { fetchCourses } from "../../lib/fetch-courses"
+import Head from "next/head";
+import Layout from "../../components/Layout";
+import CourseHero from "../../components/Course/CourseHero";
+import CourseContent from "../../components/Course/CourseContent";
+import { progressService } from "../../machines/progressService";
+import { fetchCourses } from "../../lib/fetch-courses";
 
 export default function SectionPage({
   title,
@@ -38,14 +38,14 @@ export default function SectionPage({
         course={course}
       />
     </Layout>
-  )
+  );
 }
 
 export async function getStaticProps({ params }) {
-  const coursesJson = await fetchCourses()
+  const coursesJson = await fetchCourses();
   const { title, lessons, description, learnFeatures } =
-    coursesJson[params.course]
-  const courses = Object.keys(coursesJson)
+    coursesJson[params.course];
+  const courses = Object.keys(coursesJson);
 
   return {
     props: {
@@ -57,19 +57,19 @@ export async function getStaticProps({ params }) {
       courses,
       course: params.course,
     },
-  }
+  };
 }
 
 export async function getStaticPaths() {
-  const coursesJson = await fetchCourses()
-  const courses = Object.keys(coursesJson)
+  const coursesJson = await fetchCourses();
+  const courses = Object.keys(coursesJson);
   const paths = courses.map((course) => {
-    const { title, lessons } = coursesJson[course]
-    return { params: { course, lessons, title } }
-  })
+    const { title, lessons } = coursesJson[course];
+    return { params: { course, lessons, title } };
+  });
 
   return {
     paths,
     fallback: false,
-  }
+  };
 }

@@ -1,8 +1,8 @@
-import Link from "next/link"
-import { Fragment } from "react"
-import { Popover, Transition } from "@headlessui/react"
-import MobileCourses from "./MobileCourses"
-import { XIcon } from "@heroicons/react/outline"
+import Link from "next/link";
+import { Fragment } from "react";
+import { Popover, Transition } from "@headlessui/react";
+import MobileCourses from "./MobileCourses";
+import { XIcon } from "@heroicons/react/outline";
 
 export default function MobileProgressMenu({
   content,
@@ -103,5 +103,5 @@ export default function MobileProgressMenu({
         </Popover.Panel>
       </Transition>
     </Popover>
-  )
+  );
 }

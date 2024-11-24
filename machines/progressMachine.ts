@@ -1,18 +1,18 @@
-import { createMachine, assign } from "xstate"
-import { ProgressContext } from "common"
-import { concat } from "lodash/fp"
+import { createMachine, assign } from "xstate";
+import { ProgressContext } from "common";
+import { concat } from "lodash/fp";
 import {
   getCourse,
   getChallenge,
   isSectionCompleted,
-} from "../utils/machineUtils"
-import coursesJson from "../data/courses.json"
+} from "../utils/machineUtils";
+import coursesJson from "../data/courses.json";
 
 const defaultContext: ProgressContext = {
   sectionsCompleted: [],
   lessons: [],
   disableChallenges: false,
-}
+};
 
 export const progressMachine = createMachine(
   {
@@ -51,12 +51,12 @@ export const progressMachine = createMachine(
         const challenge = getChallenge(
           coursesJson,
           event.id,
-          event.challengeIndex
-        )
+          event.challengeIndex,
+        );
 
         const isCorrectMultipleChoiceAnswer =
           challenge.challengeType === "multiple-choice" &&
-          challenge.correctAnswerIndex === event.userAnswerIndex
+          challenge.correctAnswerIndex === event.userAnswerIndex;
 
         if (isCorrectMultipleChoiceAnswer) {
           return {
@@ -64,7 +64,7 @@ export const progressMachine = createMachine(
               id: event.id,
               status: "completed",
             }),
-          }
+          };
         }
       }),
       disableChallenges: assign((context: any, event: any) => ({
@@ -72,11 +72,11 @@ export const progressMachine = createMachine(
       })),
 
       isSectionCompleted: assign((context: any, event: any) => {
-        const [sectionSlug] = event.id.split("/")
-        const course = getCourse(coursesJson, event.id)
+        const [sectionSlug] = event.id.split("/");
+        const course = getCourse(coursesJson, event.id);
         const completedLessons = context.lessons.filter(
-          (lesson) => lesson.status === "completed"
-        )
+          (lesson) => lesson.status === "completed",
+        );
 
         if (
           completedLessons.length === course.lessons.length &&
@@ -84,9 +84,9 @@ export const progressMachine = createMachine(
         ) {
           return {
             sectionsCompleted: concat(context.sectionsCompleted, sectionSlug),
-          }
+          };
         }
       }),
     },
-  }
-)
+  },
+);

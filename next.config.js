@@ -1,4 +1,3 @@
-
 module.exports = {
   swcMinify: true,
   images: {
@@ -14,7 +13,7 @@ module.exports = {
           name: "[name].[ext]",
         },
       },
-    })
-    return config
+    });
+    return config;
   },
-}
+};
