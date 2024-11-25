@@ -1,3 +1,5 @@
+This is a fork of the original [cypress-realworld-testing-course-app](https://github.com/cypress-io/cypress-realworld-testing-course-app)
+
 # Real World Testing with Cypress - Course App
 
 This application is for the [Testing your first application course](https://learn.cypress.io/testing-your-first-application) on [learn.cypress.io](https://learn.cypress.io/).
